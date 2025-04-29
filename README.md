@@ -1,18 +1,47 @@
-## TASK ONE (Secure a mobile app with JSON web tokens (JWTs).)
+# 🌟 Spring Boot JWT Authentication API
+
+Welcome to a secure and simple **JWT Authentication API** built with **Spring Boot**!  
+This project is a foundational backend service that handles **user authentication** using **JSON Web Tokens (JWT)**—perfect for protecting private endpoints in any modern web or mobile app.
+
 ---
- Good afternoon,
 
- Great to have you as part of the team! We’re excited to see your work and for you to be involved in some exciting projects.
+## 💡 What Does This Project Do?
 
- Your first task is to build a JWT-based authentication application in Java. You must build the app using the Spring Boot framework. Include Spring Web and Spring Security as dependencies.
+This project exposes a single API endpoint:  
+`POST /authenticate`
 
- When running the application, it should expose a single endpoint mapped to “/authenticate”. Specification for this endpoint is as follows:
+Here’s what happens:
 
- Create a single REST HTTP POST API.
- Request body should include a username and password.
- Response should include an authentication token.
- For now, you do not need to create a database to store usernames and hashed passwords. Instead, you can simply hardcode the values of a user and their hashed password into a file that should be read when the endpoint authenticates data from the request body.
+1. The user sends their **username and password**.
+2. If the credentials are valid, the server:
+   - Authenticates the user
+   - Generates a secure **JWT token**
+   - Sends the token back to the user
+3. The client can use this token to access protected resources by including it in the `Authorization` header.
 
- When finished with development, please send me all your files compressed into a folder for the team to conduct a code review.
+Think of it like a digital key 🗝️—the user logs in once, and the token lets them prove who they are every time they knock on your app's doors.
 
- Best regards
+---
+
+## 🚀 Why JWT?
+
+- ✅ **Stateless** – No session storage needed
+- 🔐 **Secure** – The token is signed and can’t be tampered with
+- ⚡ **Fast** – No database hit on every request
+- 🌍 **Widely Used** – Perfect for REST APIs and microservices
+
+---
+
+## 🧰 Tech Stack
+
+| Tool | Purpose |
+|------|---------|
+| **Java 17+** | Programming Language |
+| **Spring Boot** | Application Framework |
+| **Spring Security** | Authentication & Security |
+| **jjwt** | JWT token generation & validation |
+| **JUnit + Mockito** | Unit Testing |
+| **Maven** | Build Tool |
+
+---
+##Thank you for taking your time to explore the project.
