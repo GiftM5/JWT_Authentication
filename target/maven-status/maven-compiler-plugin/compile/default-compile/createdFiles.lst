@@ -1,0 +1,5 @@
+com\example\jwt_auth\configuration\SecurityConfig.class
+com\example\jwt_auth\token\JwtProvider.class
+com\example\jwt_auth\JwtAuthApplication.class
+com\example\jwt_auth\model\Client.class
+com\example\jwt_auth\loggings\LoginRequest.class
