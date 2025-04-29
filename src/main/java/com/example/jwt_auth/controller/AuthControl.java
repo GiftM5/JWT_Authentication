@@ -12,14 +12,13 @@ public class AuthControl {
     public AuthControl(JwtProvider jwtTokenProvider) {
         this.jwtTokenProvider = jwtTokenProvider;
     }
-
     @PostMapping
     public ResponseEntity<String> login(@RequestBody LoginRequest request) {
         if ("user".equals(request.getUsername()) && "password".equals(request.getPassword())) {
             String token = jwtTokenProvider.createToken(request.getUsername());
             return ResponseEntity.ok(token);
         } else {
-            return ResponseEntity.status(401).body("Invalid username or password");
+            return ResponseEntity.status(401).body("You have provided username or password");
         }
     }
 }
