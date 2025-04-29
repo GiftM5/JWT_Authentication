@@ -12,6 +12,7 @@ package com.example.jwt_auth.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -23,11 +24,12 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable())
+                .csrf(csrf -> csrf.disable()) // Disable CSRF for simplicity
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/authenticate").permitAll()
-                        .anyRequest().authenticated()
-                );
+                        .requestMatchers("/**").permitAll() // Allow all requests
+                        .anyRequest().permitAll()
+                )
+                .httpBasic(Customizer.withDefaults()); // Enable basic login (if needed)
 
         return http.build();
     }
