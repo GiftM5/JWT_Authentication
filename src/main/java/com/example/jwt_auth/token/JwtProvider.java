@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import java.security.Key;
 import java.util.Date;
 
+
 @Component
 public class JwtProvider {
 
@@ -21,4 +22,5 @@ public class JwtProvider {
                 .signWith(SignatureAlgorithm.HS512, secretKey)
                 .compact();
     }
+
 }
